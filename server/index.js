@@ -41,12 +41,13 @@ app.listen(port, () => console.log(`Server started on port ${port}`));*/
 const express = require('express');
 const app = express();
 const port = 3000;
+const hostname = '13.38.185.71';
 
 app.get('/home', (req, res) => {
     res.send('Hello World!');
 })
 
-app.listen(port, () => {
+app.listen(port, hostname, () => {
     console.log(`Example app listening on port ${port}`);
 })
 
