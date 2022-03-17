@@ -1,3 +1,4 @@
+/*
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -40,6 +41,34 @@ server.listen(port, hostname, () => {
 
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
+*/
 
+const express = require('express');
+const app = express();
+const port = 3000
 
+app.get('/', (req, res) => {
+    res.send('Hello World!')
+});
 
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
+});
+
+const mongodb = require('mongodb');
+
+const router = express.Router();
+
+//GET Users
+app.get('/api/pokemons', async (req,res) => {
+    const pokemons = await loadPokemonsCollection();
+    res.send(await pokemons.find({}).toArray());
+    //res.send('Hello Pokemons');
+});
+
+async function loadPokemonsCollection() {
+    const client = await mongodb.MongoClient.connect('mongodb+srv://pokeduel:pokeDuelDaw2022@pokedueldaw.jvx7c.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {useNewUrlParser: true});
+    return client.db('pokeduelDAW').collection('pokemons');
+}
+
+module.exports = router;
