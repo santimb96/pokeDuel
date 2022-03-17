@@ -16,6 +16,22 @@ const pokemons = require('./routes/api/pokemons');
 
 app.use('/api/pokemons', pokemons);
 
-const port = process.env.PORT || 5000;
+
+//Load HTTP module
+const http = require('http');
+const hostname = '13.38.185.71';
+const port = process.env.PORT || 3000;
+
+//Create HTTP server and listen on port 3000 for requests
+const server = http.createServer((req, res) => {
+    //Set the response HTTP header with HTTP status and Content type
+    res.statusCode = 200;
+});
+
+//listen for request on port 3000, and as a callback function have the port listened on logged
+server.listen(port, hostname, () => {
+    console.log(`Server running at http://${hostname}:${port}/`);
+});
+
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
