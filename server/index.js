@@ -46,7 +46,7 @@ app.listen(port, () => console.log(`Server started on port ${port}`));
 const express = require('express');
 const mongoose = require('mongoose');
 const routes = require('./routes');
-const port = 3000
+const port = 3000;
 const uri = 'mongodb+srv://pokeduel:pokeDuelDaw2022@pokedueldaw.jvx7c.mongodb.net/pokeduelDAW?retryWrites=true&w=majority';
 
 mongoose

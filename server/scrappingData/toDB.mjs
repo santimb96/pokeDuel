@@ -58,8 +58,6 @@ const APP = {
             if (err) return console.error(err);
             console.info('Saved!');
         });
-
-
     }
 }
 APP.getData();
