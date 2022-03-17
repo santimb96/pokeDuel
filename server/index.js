@@ -28,6 +28,11 @@ const server = http.createServer((req, res) => {
     res.statusCode = 200;
 });
 
+
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+})
+
 //listen for request on port 3000, and as a callback function have the port listened on logged
 server.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
@@ -35,4 +40,6 @@ server.listen(port, hostname, () => {
 
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
+
+
 
