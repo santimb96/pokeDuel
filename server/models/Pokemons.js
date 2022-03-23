@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Int32 = require("mongoose-int32").loadType(mongoose);
 
-const schema = mongoose.Schema({
+const schema = new mongoose.Schema({
     _id: Int32,
     name: String,
     level: Int32,
@@ -11,4 +11,4 @@ const schema = mongoose.Schema({
     img_game: String
 })
 
-module.exports = mongoose.model("Pokemons", schema)
+module.exports = mongoose.model("Pokemons", schema);
