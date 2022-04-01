@@ -12,7 +12,7 @@ const APP = {
     pokeList: [],
 
     getData: async function () {
-        const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=151');
+        const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=386');
         const data = await response.json();
         await this.pushingUrl(data);
     },
@@ -29,7 +29,7 @@ const APP = {
             this.pokeList.push(async);
         }
 
-        return this.writeData();
+        //return this.writeData();
 
     },
 
@@ -37,20 +37,22 @@ const APP = {
         const response = await fetch(url);
         const data = await response.json();
         console.log({
-            id: data.id,
+            pokedexNumber: data.id,
             name: data.name,
             level: 1,
             type: data.types[0].type.name,
             speed: data.stats[5].base_stat,
-            img: `https://images.gameinfo.io/pokemon-trimmed/60/p${data.id}.webp`
+            img: `https://images.gameinfo.io/pokemon-trimmed/60/p${data.id}.webp`,
+            imgGame: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data.id}.svg`
         })
         return {
-            _id: data.id,
+            pokedexNumber: data.id,
             name: data.name,
             level: 1,
             type: data.types[0].type.name,
             speed: data.stats[5].base_stat,
-            img: `https://images.gameinfo.io/pokemon-trimmed/60/p${data.id}.webp`
+            img: `https://images.gameinfo.io/pokemon-trimmed/60/p${data.id}.webp`,
+            imgGame: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data.id}.svg`
         };
 
     },
