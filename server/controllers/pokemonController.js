@@ -1,4 +1,4 @@
-const Pokemon = require("../models/Pokemon");
+const Pokemon = require("../models/pokemon");
 const detectedError  = require("./errorController");
 
 const getAll = async (req, res) => {
