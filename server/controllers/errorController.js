@@ -5,4 +5,6 @@ const detectedError = (err, res) => {
   return res.status(404).send({ error: "No encontrado" });
 };
 
-module.exports = detectedError;
+module.exports = {
+  detectedError
+};
