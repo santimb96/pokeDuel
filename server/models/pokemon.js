@@ -10,10 +10,6 @@ const PokemonSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    level: {
-        type: Number,
-        required: true
-    },
     type: {
         type: String,
         required: true
@@ -22,11 +18,19 @@ const PokemonSchema = new mongoose.Schema({
         type: Number, 
         required: true
     },
-    img : {
+    img3d : {
         type: String
     },
     
-    imgGame : {
+    imgSvg : {
+        type: String
+    },
+    
+    imgFront : {
+        type: String
+    },
+    
+    imgBack : {
         type: String
     }
 })

@@ -12,7 +12,7 @@ const APP = {
     pokeList: [],
 
     getData: async function () {
-        const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=386');
+        const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=251');
         const data = await response.json();
         await this.pushingUrl(data);
     },
@@ -28,9 +28,6 @@ const APP = {
             const async = await this.getPokemon(data);
             this.pokeList.push(async);
         }
-
-        //return this.writeData();
-
     },
 
     getPokemon: async function (url) {
@@ -39,20 +36,22 @@ const APP = {
         console.log({
             pokedexNumber: data.id,
             name: data.name,
-            level: 1,
             type: data.types[0].type.name,
             speed: data.stats[5].base_stat,
-            img: `https://images.gameinfo.io/pokemon-trimmed/60/p${data.id}.webp`,
-            imgGame: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data.id}.svg`
+            img3d: `https://images.gameinfo.io/pokemon-trimmed/60/p${data.id}.webp`,
+            imgSvg: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data.id}.svg`,
+            imgFront: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${data.id}.gif`,
+            imgBack: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/${data.id}.gif`, 
         })
         return {
             pokedexNumber: data.id,
             name: data.name,
-            level: 1,
             type: data.types[0].type.name,
             speed: data.stats[5].base_stat,
-            img: `https://images.gameinfo.io/pokemon-trimmed/60/p${data.id}.webp`,
-            imgGame: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data.id}.svg`
+            img3d: `https://images.gameinfo.io/pokemon-trimmed/60/p${data.id}.webp`,
+            imgSvg: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data.id}.svg`,
+            imgFront: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${data.id}.gif`,
+            imgBack: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/${data.id}.gif`, 
         };
 
     },
