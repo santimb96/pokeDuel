@@ -18,18 +18,6 @@ const UserSchema = new mongoose.Schema({
     avatar: {
         type: String,
     },
-    name: {
-        type: String, 
-        required: true
-    },
-    surname : {
-        type: String,
-        required: true
-    },
-    
-    pokemonTeam : {
-        type: Array
-    }, 
     createdAt: {
         type: Date,
         required: true
