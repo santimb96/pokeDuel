@@ -56,13 +56,21 @@ const updateById = async (req, res) => {
 
 const create = async (req, res) => {
   const userToCreate = req.body;
+  
   bcrypt.genSalt(10).then((salt) => {
     bcrypt.hash(userToCreate.password, salt).then((hashedPaswd) => {
       userToCreate.password = hashedPaswd;
-      User.create(userToCreate).then((userCreated) => {
+      const newUser = new User({
+        username: userToCreate.username,
+        password: userToCreate.password,
+        email: userToCreate.email,
+        avatar: userToCreate.avatar,
+        createdAt: new Date()
+      })
+      User.create(newUser).then((userCreated) => {
         return res
           .status(201)
-          .send({ status: 201, message: `${userCreated.name} ha sido cread@` });
+          .send({ status: 201, message: `${userCreated.username} ha sido cread@` });
       });
     });
   });
@@ -88,7 +96,6 @@ const login = (req, res) => {
     // si es ok, firmar jwt
     // devolver user, userRole, jwt y expiryDate
     User.findOne({ email: req.body.email })
-      .populate('userRoleId')
       .then((user) => {
         if (user) {
           bcrypt
