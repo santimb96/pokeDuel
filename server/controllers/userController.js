@@ -38,7 +38,7 @@ const updateById = async (req, res) => {
           .then((user) =>
             res
               .status(201)
-              .send({ status: 201, message: `${user.name} actualizado` })
+              .send({ status: 201, message: `${user.username} actualizado` })
           )
           .catch(() => handleError(404, 'Usuario no encontrado', res));
       });
