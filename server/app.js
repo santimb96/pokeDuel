@@ -2,6 +2,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 
 const Pokemon = require("./routes/pokemon");
+const User = require("./routes/user");
+
+
 const app = express();
 
 const Database = require("./config/database");
@@ -21,5 +24,8 @@ app.listen(config.PORT, (err) => {
 Database.connect();
 
 app
-  .use("/api/pokemons", Pokemon)
+  .use("/pokemons", Pokemon)
+  .use("/users", User)
+
+  
 module.exports = app;

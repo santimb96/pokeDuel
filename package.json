@@ -10,11 +10,15 @@
   "author": "Santiago Martinez, Georgie Benevento and Kim Asiao",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.19.2",
     "cors": "^2.8.5",
     "cross-fetch": "^3.1.5",
+    "date-fns": "^2.28.0",
+    "dayjs": "^1.11.0",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.4.1",
     "mongoose": "^6.2.8",
     "mongoose-int32": "^0.6.0"
