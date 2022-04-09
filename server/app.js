@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 
 const Pokemon = require("./routes/pokemon");
 const User = require("./routes/user");
+const UserStat = require("./routes/userStat");
 
 
 const app = express();
@@ -26,6 +27,7 @@ Database.connect();
 app
   .use("/pokemons", Pokemon)
   .use("/users", User)
+  .use("/userStats", UserStat);
 
   
 module.exports = app;
