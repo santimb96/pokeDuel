@@ -2,9 +2,9 @@ const mongoose = require("mongoose");
 
 const UserStatSchema = new mongoose.Schema({
     user: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: mongoose.Types.ObjectId,
+        ref: "User",
         required: true,
-        unique: true
     },
     timePlayed: {
       type: Date,
@@ -29,4 +29,4 @@ const UserStatSchema = new mongoose.Schema({
 })
 
 const UserStat = mongoose.model("UserStat", UserStatSchema, "userStats");
-module.exports = User;
+module.exports = UserStat;
