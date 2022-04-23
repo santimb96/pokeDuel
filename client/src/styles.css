@@ -1,8 +1,48 @@
+html{
+  height: 100%;
+  width: 100%;
+}
+
+/* LOGO */
+h1{
+  font-family: 'Pokemon Solid', sans-serif;
+  color: #ffcc01;
+  -webkit-text-stroke: 2px #365eaa;
+}
+
+.logo{
+  display: flex;
+  justify-content: center;
+  font-size: 7vh;
+  margin-bottom: 3vh;
+}
+
+.container{
+  height: 100%;
+}
+
 body{
-  background: #a73737;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #7a2828, #a73737);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #7a2828, #a73737); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right,#bdbec1, #bdbec1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   padding:0;
   margin:0;
   overflow-x: hidden;
+  overflow-y: hidden;
 }
+
+.square {
+  position: relative;
+  width: 100vw;
+  border: solid black 5px;
+  border-radius: 5px;
+  table-layout: fixed;
+}
+
+.square:after {
+  content: "";
+  display: flex;
+  padding-bottom: 100%;
+  background-color: #747570;
+  border: solid black 10px;
+  border-radius: 5px;
+}
+

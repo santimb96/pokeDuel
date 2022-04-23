@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "sass": "sass --watch src/scss/custom.scss:src/css/custom.css",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
