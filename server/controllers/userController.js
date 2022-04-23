@@ -122,9 +122,7 @@ const login = (req, res) => {
 };
 
 const autoLogin = (req, res) => {
-  // {id: id, token: token}
   User.findOne({ _id: req.body.id })
-    .populate('userRoleId')
     .then((user) => {
       if (user) {
         delete user._doc.password;

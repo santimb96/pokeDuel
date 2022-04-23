@@ -18,7 +18,7 @@ const verify = (req, res, next) => {
       ? req.headers.authorization.replace(/^Bearer\s+/, "")
       : false;
 
-     if(token){
+     if(token && req.path.includes('autologin')){
         jwt.verify(token, app.get('masterKey'), (err, decoded) => {
           if (err) {
             handleError(401, 'Token inválido', res);
@@ -27,7 +27,7 @@ const verify = (req, res, next) => {
             next();
           }
         });
-     } else {
+     } else if(!req.path.includes('autologin')) {
        next();
      } 
 };

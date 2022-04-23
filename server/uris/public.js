@@ -17,4 +17,6 @@ const public = {
   ]
 };
 
-module.exports = public;
+module.exports = {
+  public
+};
