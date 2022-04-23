@@ -1,1 +1,24 @@
-<router-outlet></router-outlet>
+<div class="container-md-fluid">
+  <h1 class="logo">PokeDuel</h1>
+  <div class="card square">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="controls">
+    <div class="dpad">
+      <div class="up"><i class="fa fa-caret-up"></i></div>
+      <div class="right"><i class="fa fa-caret-right"></i></div>
+      <div class="down"><i class="fa fa-caret-down"></i></div>
+      <div class="left"><i class="fa fa-caret-left"></i></div>
+      <div class="middle"></div>
+    </div>
+    <div class="a-b">
+      <div class="b" routerLink="/">B</div>
+      <div class="a">A</div>
+    </div>
+  </div>
+
+  <div class="start-select">
+    <div class="select">SELECT</div>
+    <div class="start">START</div>
+  </div>
+</div>

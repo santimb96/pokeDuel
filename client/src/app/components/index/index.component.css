@@ -1,10 +1,4 @@
 button{
-  margin-top: 5px;
-  width: 50vh;
-}
-
-button:hover{
-  background-color: white;
-  color:black;
-  border:white;
+  width: 20vh;
+  font-family: 'Pokemon Solid', sans-serif;
 }

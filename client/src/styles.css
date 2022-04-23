@@ -46,3 +46,10 @@ body{
   border-radius: 5px;
 }
 
+.inside-frame{
+  position: absolute;
+  margin: 2vh;
+  width: 95vw;
+}
+
+
