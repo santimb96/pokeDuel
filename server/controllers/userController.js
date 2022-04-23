@@ -87,15 +87,10 @@ const deleteById = async (req, res) => {
 };
 
 const login = (req, res) => {
-  //console.log(req.body.password);
-  if (!req.body.email || !req.body.password) {
+  if (!req.body.username || !req.body.password) {
     handleError(400.1, 'Parámetros incorrectos', res);
   } else {
-    // buscar el usuario
-    // comparar contraseñas con bcrypt
-    // si es ok, firmar jwt
-    // devolver user, userRole, jwt y expiryDate
-    User.findOne({ email: req.body.email })
+    User.findOne({ username: req.body.username })
       .then((user) => {
         if (user) {
           bcrypt
@@ -110,7 +105,6 @@ const login = (req, res) => {
 
                 res.status(200).send({
                   user,
-                  role: user.userRoleId.name,
                   token: token,
                   expiryDate: format(expDate, 'dd/MM/yyyy HH:mm'),
                 });

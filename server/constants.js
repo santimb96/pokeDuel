@@ -1,3 +1,5 @@
-const EXPIRE_DATE = 1440; // 24 hours
+const EXPIRE_DATE = '24h'; // 24 hours
 
-module.export = EXPIRE_DATE;
+module.exports = {
+  EXPIRE_DATE
+};

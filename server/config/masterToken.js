@@ -1,3 +1,5 @@
 const masterToken = 'wozzoMaster123';
 
-module.exports = masterToken;
+module.exports = {
+  masterToken
+};
