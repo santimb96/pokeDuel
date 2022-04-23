@@ -3,7 +3,7 @@ const handleError  = require("./errorController");
 
 const getAll = async (req, res) => {
   UserStat.find({})
-    .then(userStat => res.status(200).send({userStat}))
+    .then(userStats => res.status(200).send({userStats}))
     .catch(() => handleError(404, 'No se han encontrado pokémons', res))
 };
 
