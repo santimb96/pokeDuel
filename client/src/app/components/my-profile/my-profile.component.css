@@ -1,0 +1,7 @@
+@import url(https://fonts.googleapis.com/css?family=Sigmar+One);
+
+.card{
+  font-family: 'Sigmar One';
+  color: #ffcc01;
+  -webkit-text-stroke: 1px #365eaa;
+}

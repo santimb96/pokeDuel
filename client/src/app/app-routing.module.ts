@@ -3,21 +3,22 @@ import { RouterModule, Routes } from '@angular/router';
 
 //components
 // @ts-ignore
-import {IndexComponent} from "./components/index/index.component";
-// @ts-ignore
 import {CreateComponent} from "./components/users/create/create.component";
 // @ts-ignore
 import {LogInComponent} from "./components/users/log-in/log-in.component";
-// @ts-ignore
-import {ShowComponent} from "./components/users/show/show.component";
-// @ts-ignore
-import {InterfaceComponent} from "./interface/interface.component";
+import {HomeComponent} from "./components/home/home.component";
+import {GameMenuComponent} from "./components/game-menu/game-menu.component";
+import {HowToPlayComponent} from "./components/how-to-play/how-to-play.component";
+import {MyProfileComponent} from "./components/my-profile/my-profile.component";
 
 const routes: Routes = [
-  { path: '', component: IndexComponent },
+  { path: '', component: HomeComponent }, //home
   { path: 'new-account', component: CreateComponent }, //create a new user
   { path: 'log-in', component: LogInComponent }, //logIn user
-  { path: 'myProfile', component: ShowComponent }, //show user's data information
+  { path: 'menu', component: GameMenuComponent }, //gameMenu component
+  { path: 'my-profile', component: MyProfileComponent }, //gameMenu component
+  { path: 'how-to-play', component: HowToPlayComponent }, //gameMenu component
+
 ];
 
 @NgModule({
