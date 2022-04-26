@@ -11,15 +11,17 @@
       <div class="left"><i class="fa fa-caret-left"></i></div>
       <div class="middle"></div>
     </div>
+    <!-- #TODO: SIMPLIFICAR -->
     <div class="a-b">
-      <div class="b" routerLink="/">B</div>
-      <div class="b" routerLink="/">B</div>
+      <div class="b" *ngIf="router.url === '/new-account' || router.url === '/log-in' || router.url === '/'  " routerLink="/">B</div>
+      <div class="b" *ngIf="router.url === '/my-profile' || router.url === '/menu' || router.url === '/how-to-play'" routerLink="/menu">B</div>
       <div class="a">A</div>
     </div>
   </div>
 
   <div class="start-select">
     <div class="select">SELECT</div>
-    <div class="start">START</div>
+    <div class="start" *ngIf="router.url !== '/'" routerLink="/menu">START</div>
+    <div class="start" *ngIf="router.url === '/'" routerLink="/">START</div>
   </div>
 </div>
