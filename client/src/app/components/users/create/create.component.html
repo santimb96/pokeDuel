@@ -3,37 +3,14 @@
 
     <div class="col-lg-6 d-flex flex-column align-items-center">
       <h1>Register</h1>
-      <input type="text" class="form-control" placeholder="Name"/>
-      <input type="text" class="form-control" placeholder="Surname"/>
-      <input type="text" class="form-control" placeholder="Username"/>
-      <input type="password" class="form-control" placeholder="Password"/>
-      <input type="password" class="form-control" placeholder="Re-type password"/>
-      <input type="email" class="form-control" placeholder="E-mail"/>
-
-      <!--
-      <div class="card-body formUser">
-      <form class="formUser">
-        <div class="mb-2">
-          <input type="text" class="form-control" placeholder="Name"/>
-        </div>
-        <div class="mb-2">
-          <input type="text" class="form-control" placeholder="Surname"/>
-        </div>
-        <div class="mb-2">
-          <input type="text" class="form-control" placeholder="Username"/>
-        </div>
-        <div class="mb-2">
-          <input type="password" class="form-control" placeholder="Password"/>
-        </div><div class="mb-2">
-          <input type="password" class="form-control" placeholder="Re-type password"/>
-        </div>
-        <div class="mb-2">
-          <input type="email" class="form-control" placeholder="E-mail"/>
-        </div>
-        <button routerLink="/" class="btn btn-secondary float-start">Back</button>
-        <button class="btn btn-success float-end">Create</button>
+      <form [formGroup]="userForm" (ngSubmit)="createUser()">
+        <input type="text" formControlName="username" class="form-control" placeholder="Username"/>
+        <input type="password" formControlName="password" class="form-control" placeholder="Password"/>
+        <input type="password" class="form-control" placeholder="Re-type password"/>
+        <input type="email" formControlName="email" class="form-control" placeholder="E-mail"/>
+        <input type="text" formControlName="avatar" class="form-control" placeholder="Avatar"/>
+        <button type="submit" class="a">A</button>
       </form>
-      </div>-->
     </div>
   </div>
 </div>

@@ -13,9 +13,13 @@
     </div>
     <!-- #TODO: SIMPLIFICAR -->
     <div class="a-b">
+
+      <!-- B -->
       <div class="b" *ngIf="router.url === '/new-account' || router.url === '/log-in' || router.url === '/'  " routerLink="/">B</div>
       <div class="b" *ngIf="router.url === '/my-profile' || router.url === '/menu' || router.url === '/how-to-play'" routerLink="/menu">B</div>
-      <div class="a">A</div>
+
+      <!-- A -->
+      <div class="a" *ngIf="router.url !== '/new-account'">A</div>
     </div>
   </div>
 

@@ -3,3 +3,32 @@ input{
   width: 60vw;
   font-family: 'Pokemon Solid', sans-serif;
 }
+
+.a-b {
+  position:relative;
+  display:inline-block;
+  width:120px;
+  height:90px;
+  
+}
+
+.a {
+  position:absolute;
+  display:inline-block;
+  font-size:22px;
+  width:40px;
+  height:40px;
+  line-height: 40px;
+  border-radius:50%;
+  top: 24vh;
+  right: -2vh;
+  z-index: 100;
+  border-bottom:2px solid #888;
+  box-shadow:-1px 1px 5px black, 0px 0px 5px black inset;
+  text-shadow:0px -1px 1px #888;
+  color:#2c313e;
+  text-align:center;
+  -webkit-user-select:none;
+  cursor:pointer;
+  transition:box-shadow 0.1s ease-out, border 0.1s ease-out, line-height 0.2s ease-out;
+}
