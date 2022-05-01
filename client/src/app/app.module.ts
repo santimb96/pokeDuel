@@ -14,6 +14,8 @@ import { HomeComponent } from './components/home/home.component';
 import { GameMenuComponent } from './components/game-menu/game-menu.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { HowToPlayComponent } from './components/how-to-play/how-to-play.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ShowUsersComponent } from './components/users/show-users/show-users.component'
 
 @NgModule({
   declarations: [
@@ -24,11 +26,13 @@ import { HowToPlayComponent } from './components/how-to-play/how-to-play.compone
     GameMenuComponent,
     MyProfileComponent,
     HowToPlayComponent,
+    ShowUsersComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

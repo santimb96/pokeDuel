@@ -33,6 +33,7 @@ export class CreateComponent implements OnInit {
     }
 
     console.log(user)
+    this.router.navigate(['/log-in']);
   }
 
 }

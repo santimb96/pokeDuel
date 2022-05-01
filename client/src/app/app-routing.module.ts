@@ -10,6 +10,7 @@ import {HomeComponent} from "./components/home/home.component";
 import {GameMenuComponent} from "./components/game-menu/game-menu.component";
 import {HowToPlayComponent} from "./components/how-to-play/how-to-play.component";
 import {MyProfileComponent} from "./components/my-profile/my-profile.component";
+import { ShowUsersComponent } from './components/users/show-users/show-users.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent }, //home
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'menu', component: GameMenuComponent }, //gameMenu component
   { path: 'my-profile', component: MyProfileComponent }, //gameMenu component
   { path: 'how-to-play', component: HowToPlayComponent }, //gameMenu component
+  { path: 'all-users', component: ShowUsersComponent }, //gameMenu component
 
 ];
 
