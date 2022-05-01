@@ -1,8 +1,114 @@
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+@include media-breakpoint-down(md){
+  body{
+    padding:0;
+    margin:0;
+  }
+
+  .body-bg{
+    background: linear-gradient(to right,#bdbec1, #bdbec1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding:0;
+    margin:0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+
+  .square {
+    position: relative;
+    width: 100vw;
+    border: solid black 5px;
+    border-radius: 5px;
+    table-layout: fixed;
+  }
+  
+  .square:after {
+    content: "";
+    display: flex;
+    padding-bottom: 100%;
+    background-color: #747570;
+    border: solid black 10px;
+    border-radius: 5px;
+  }
+
+  .inside-frame{
+    position: absolute;
+    margin: 2vh;
+    width: 95vw;
+  }
+
+  .controls {
+    margin-left: 4vh;
+    margin-right: 4vh;
+    margin-bottom: -15px;
+  }
+
+  .a,.b{
+    background-color: #751650;
+  }
+
+  
+}
+
+@include media-breakpoint-up(md) { 
+  .body-bg{
+    background-color: #665f9e;
+  }
+
+  .square {
+    position: relative;
+    width: 100vw;
+    border: solid black 5px;
+    border-radius: 5px;
+    table-layout: fixed;
+  }
+
+  .square:after {
+    content: "";
+    display: flex;
+    width: 70vw;
+    padding-bottom: 50%;
+    background-color: #747570;
+    border: solid black 10px;
+    border-radius: 5px;
+    align-self: center;
+  }
+
+  .inside-frame{
+    position: absolute;
+    margin: 2vh;
+    width: 100vw;
+  }
+
+  .controls{
+    position: absolute;
+    top:25vw;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .a-b {
+    left: 80vw;
+    .a, .b{
+      background-color: #c1c1bf;
+    }
+    
+    .a {
+      top:15px;
+      right:10px;
+      margin-right: 4vh;
+    }
+    .b {
+      top:35px;
+      left:-4%;
+    }
+  }
+}
+
+
 .controls {
   display:flex;
   justify-content:space-between;
-  margin-left: 4vh;
-  margin-right: 4vh;
 
   .dpad {
     position:relative;
@@ -142,7 +248,7 @@
       height:40px;
       line-height: 40px;
       border-radius:50%;
-      background-color: #751650;
+      
       border-bottom:2px solid #888;
       box-shadow:-1px 1px 5px black, 0px 0px 5px black inset;
       text-shadow:0px -1px 1px #888;
@@ -201,3 +307,4 @@
     }
   }
 }
+

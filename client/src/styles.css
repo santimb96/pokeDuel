@@ -3,6 +3,11 @@ html{
   width: 100%;
 }
 
+body{
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
 /* LOGO */
 h1{
   font-family: 'Pokemon Solid', sans-serif;
@@ -20,36 +25,4 @@ h1{
 .container{
   height: 100%;
 }
-
-body{
-  background: linear-gradient(to right,#bdbec1, #bdbec1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  padding:0;
-  margin:0;
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
-
-.square {
-  position: relative;
-  width: 100vw;
-  border: solid black 5px;
-  border-radius: 5px;
-  table-layout: fixed;
-}
-
-.square:after {
-  content: "";
-  display: flex;
-  padding-bottom: 100%;
-  background-color: #747570;
-  border: solid black 10px;
-  border-radius: 5px;
-}
-
-.inside-frame{
-  position: absolute;
-  margin: 2vh;
-  width: 95vw;
-}
-
 
