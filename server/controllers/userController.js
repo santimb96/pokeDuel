@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt');
 const { masterToken } = require('../config/masterToken.js');
 const { EXPIRE_DATE } = require('../constants.js');
 const { format } = require('date-fns');
+const getDataFromAws = require('./awsController.js');
 
 const app = express();
 app.set('masterKey', masterToken);
@@ -30,50 +31,63 @@ const findId = async (req, res) => {
 
 const updateById = async (req, res) => {
   const userToUpdate = req.body;
-  if (req.body.password) {
-    bcrypt.genSalt(10).then((salt) => {
-      bcrypt.hash(userToUpdate.password, salt).then((hashedPaswd) => {
-        userToUpdate.password = hashedPaswd;
-        User.findOneAndUpdate({ _id: req.params.id }, userToUpdate)
+
+  getDataFromAws(req).then((data) => {
+    const locationUrl = data.Location;
+    let newUserToUpdate = { ...userToUpdate, avatar: locationUrl };
+
+      if (req.body.password) {
+        bcrypt.genSalt(10).then((salt) => {
+          bcrypt.hash(newUserToUpdate.password, salt).then((hashedPaswd) => {
+            newUserToUpdate.password = hashedPaswd;
+            User.findOneAndUpdate({ _id: req.params.id }, newUserToUpdate)
+              .then((user) =>
+                res
+                  .status(201)
+                  .send({ status: 201, message: `${user.username} actualizado` })
+              )
+              .catch(() => handleError(404, 'Usuario no encontrado', res));
+          });
+        });
+      } else {
+        User.findOneAndUpdate({ _id: req.params.id }, newUserToUpdate)
           .then((user) =>
             res
               .status(201)
-              .send({ status: 201, message: `${user.username} actualizado` })
+              .send({ status: 201, message: `${user.name} actualizado` })
           )
           .catch(() => handleError(404, 'Usuario no encontrado', res));
-      });
-    });
-  } else {
-    User.findOneAndUpdate({ _id: req.params.id }, userToUpdate)
-      .then((user) =>
-        res
-          .status(201)
-          .send({ status: 201, message: `${user.name} actualizado` })
-      )
-      .catch(() => handleError(404, 'Usuario no encontrado', res));
-  }
+      }
+  })
+  
 };
 
 const create = async (req, res) => {
   const userToCreate = req.body;
-  
-  bcrypt.genSalt(10).then((salt) => {
-    bcrypt.hash(userToCreate.password, salt).then((hashedPaswd) => {
-      userToCreate.password = hashedPaswd;
-      const newUser = new User({
-        username: userToCreate.username,
-        password: userToCreate.password,
-        email: userToCreate.email,
-        avatar: userToCreate.avatar,
-        createdAt: new Date()
-      })
-      User.create(newUser).then((userCreated) => {
-        return res
-          .status(201)
-          .send({ status: 201, message: `${userCreated.username} ha sido cread@` });
+
+  getDataFromAws(req).then((data) => {
+    const locationUrl = data.Location;
+    let newUserToCreate = new User({ ...userToCreate, avatar: locationUrl });
+
+    bcrypt.genSalt(10).then((salt) => {
+      bcrypt.hash(newUserToCreate.password, salt).then((hashedPaswd) => {
+        newUserToCreate.password = hashedPaswd;
+        const newUser = new User({
+          username: newUserToCreate.username,
+          password: newUserToCreate.password,
+          email: newUserToCreate.email,
+          avatar: newUserToCreate.avatar,
+          createdAt: new Date()
+        })
+        User.create(newUser).then((userCreated) => {
+          return res
+            .status(201)
+            .send({ status: 201, message: `${userCreated.username} ha sido cread@` });
+        });
       });
     });
-  });
+  })
+  
 };
 
 const deleteById = async (req, res) => {

@@ -3,23 +3,29 @@ const aws = require('aws-sdk');
 const fs = require('fs');
 const dotenv = require('dotenv');
 const process = require('process');
+const { Buffer } = require('buffer');
+const Jimp = require('jimp');
 
 dotenv.config();
 
 const getDataFromAws = (req) => new Promise((resolve, reject) => {
+
+
   
   aws.config.setPromisesDependency();
   aws.config.update({
     accessKeyId: process.env.ACCESS_KEY,
     secretAccessKey: process.env.ACCESS_KEY_PRIVATE,
   });
-  console.warn(req.file);
+  console.warn(req);
 
   const s3 = new aws.S3();
   const params = {
     Bucket: process.env.BUCKET,
-    Body: fs.createReadStream(req.file.path),
-    Key: `song/${req.file.originalname}`,
+    Body: req.file.buffer,
+    Key: `avatar/${req.file.originalname}`,
+    ContentEncoding: req.file.encoding,
+    ContentType: req.file.mimetype,
     CacheControl: 'public'
   };
 
@@ -27,10 +33,10 @@ const getDataFromAws = (req) => new Promise((resolve, reject) => {
     if (err) {
       reject(err);
     }
-    fs.unlinkSync(req.file.path);
+    // fs.unlinkSync(req.file);
 
     resolve(data);
   });
 });
 
-module.exports = { getDataFromAws };
+module.exports =  getDataFromAws ;
