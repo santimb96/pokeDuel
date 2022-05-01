@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  url = "https://pokeduelbackend.up.railway.app/users/"
+  url = "http://localhost:5000/users"
 
   constructor(private http: HttpClient) { }
 
