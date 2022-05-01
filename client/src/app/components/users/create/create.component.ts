@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-create',
@@ -23,6 +24,15 @@ export class CreateComponent implements OnInit {
 
   createUser():void {
     console.log(this.userForm);
+
+    const user: User = {
+      username: this.userForm.get('username')?.value,
+      password: this.userForm.get('password')?.value,
+      email: this.userForm.get('email')?.value,
+      avatar: this.userForm.get('avatar')?.value,
+    }
+
+    console.log(user)
   }
 
 }

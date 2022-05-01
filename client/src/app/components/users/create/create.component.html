@@ -5,11 +5,20 @@
       <h1>Register</h1>
       <form [formGroup]="userForm" (ngSubmit)="createUser()">
         <input type="text" formControlName="username" class="form-control" placeholder="Username"/>
+        <div class="text-danger" *ngIf="userForm.get('username')?.hasError('required') && userForm.get('username')?.touched">
+          <span><strong>Username is a required field.</strong></span>
+        </div>
         <input type="password" formControlName="password" class="form-control" placeholder="Password"/>
+        <div class="text-danger" *ngIf="userForm.get('password')?.hasError('required') && userForm.get('password')?.touched">
+          <span><strong>Password is a required field.</strong></span>
+        </div>
         <input type="password" class="form-control" placeholder="Re-type password"/>
         <input type="email" formControlName="email" class="form-control" placeholder="E-mail"/>
+        <div class="text-danger" *ngIf="userForm.get('email')?.hasError('required') && userForm.get('email')?.touched">
+          <span><strong>Email is a required field.</strong></span>
+        </div>
         <input type="text" formControlName="avatar" class="form-control" placeholder="Avatar"/>
-        <button type="submit" class="a">A</button>
+        <button type="submit" [disabled]="userForm.invalid" class="a">A</button>
       </form>
     </div>
   </div>
