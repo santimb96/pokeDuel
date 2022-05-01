@@ -1,4 +1,16 @@
-button{
-  width: 20vh;
-  font-family: 'Pokemon Solid', sans-serif;
-}
+/*@include media-breakpoint-down(md)*/
+@media (max-width: 767.98px) { 
+  button{
+    width: 20vh;
+    font-family: 'Pokemon Solid', sans-serif;
+  }
+ }
+
+
+/*@include media-breakpoint-up(md)*/
+@media (min-width: 768px) { 
+  button{
+    width: 80vh;
+    font-family: 'Pokemon Solid', sans-serif;
+  }
+ }

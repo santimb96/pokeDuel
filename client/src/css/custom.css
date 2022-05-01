@@ -11162,8 +11162,16 @@ textarea.form-control-lg {
     margin-bottom: -15px;
   }
 
-  .a, .b {
+  .a-b .a, .a-b .b {
     background-color: #751650;
+  }
+  .a-b .a {
+    top: 15px;
+    right: 10px;
+  }
+  .a-b .b {
+    top: 35px;
+    left: 0%;
   }
 }
 @media (min-width: 768px) {
@@ -11216,9 +11224,16 @@ textarea.form-control-lg {
   }
   .a-b .b {
     top: 35px;
-    left: -4%;
+    left: -15%;
+  }
+
+  .inside-frame {
+    position: absolute;
+    margin: 2vh;
+    width: 98vw;
   }
 }
+/*GLOBAL*/
 .controls {
   display: flex;
   justify-content: space-between;
@@ -11362,14 +11377,6 @@ textarea.form-control-lg {
   box-shadow: -1px 1px 1px black, 0px 0px 5px black inset;
   border-width: 0px;
   line-height: 45px;
-}
-.controls .a-b .a {
-  top: 15px;
-  right: 10px;
-}
-.controls .a-b .b {
-  top: 35px;
-  left: 0%;
 }
 
 .start-select {
