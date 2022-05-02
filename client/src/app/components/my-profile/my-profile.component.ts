@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
+import { ActivatedRoute } from '@angular/router'
+import {FormBuilder, FormGroup } from "@angular/forms";
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-my-profile',
@@ -8,7 +11,11 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class MyProfileComponent implements OnInit {
 
-  constructor(private _userService: UserService) { }
+  userForm: FormGroup
+  id: string | null;
+  constructor(private fb: FormBuilder, public router: Router, private _userService: UserService, private aRouter: ActivatedRoute) { 
+    this.id = this.aRouter.snapshot.paramMap.get('id'); //tiene que coincidir con el nombre del parametro que le pasamos por app-routing.module.ts
+  }
 
   ngOnInit(): void {
   }
@@ -21,4 +28,16 @@ export class MyProfileComponent implements OnInit {
     })
   }
 
+  editUser(){
+    if(this.id !== null){
+      this._userService.editUser(this.id).subscribe(data => {
+        this.userForm.setValue({
+            username: data.username,
+            password: data.password,
+            email: data.email,
+            avatar: data.avatar,
+        })
+      })
+    }
+  }
 }
