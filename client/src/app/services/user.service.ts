@@ -7,11 +7,15 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  url = "http://localhost:5000/users"
+  url = "http://localhost:5000/users/"
 
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<any>{
     return this.http.get(this.url);
+  }
+
+  deleteUser(id: string): Observable<any>{
+    return this.http.delete(this.url+id);
   }
 }

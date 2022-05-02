@@ -15,7 +15,7 @@ export class ShowUsersComponent implements OnInit {
   }
   
   getUsers(){
-    this._userService.getUsers().subscribe(users=>{
+    this._userService.getUsers().subscribe(users => {
       console.log(users);
     }, error => {
       console.log(error);

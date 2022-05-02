@@ -1,0 +1,22 @@
+<table *ngIf="pokemons.length > 0" class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">#</th>
+        <th scope="col">Pokedex Number</th>
+        <th scope="col">Name</th>
+        <th scope="col">Type</th>
+        <th scope="col">Speed</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pokemon of pokemons">
+        <td>{{ pokemon.imgSvg }}</td>
+        <td>{{ pokemon.pokedexNumber }}</td>
+        <td>{{ pokemon.name }}</td>
+        <td>{{ pokemon.type }}</td>
+        <td>{{ pokemon.speed }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 *ngIf="pokemons.length === 0">No se han encontrado pokemons.</h5>
