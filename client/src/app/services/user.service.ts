@@ -24,8 +24,13 @@ export class UserService {
     return this.http.post(this.url, user);
   }
 
-  editUser(id: string): Observable<any>{ 
+
+  showUser(id: string): Observable<any>{ 
     return this.http.get(this.url+id)
+  }
+
+  editUser(id: string, user: User): Observable<any>{
+    return this.http.put(this.url+id, user);
   }
 
 }

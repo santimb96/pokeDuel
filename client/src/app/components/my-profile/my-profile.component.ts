@@ -3,6 +3,7 @@ import { UserService } from 'src/app/services/user.service';
 import { ActivatedRoute } from '@angular/router'
 import {FormBuilder, FormGroup } from "@angular/forms";
 import { Router } from '@angular/router'
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-my-profile',
@@ -28,9 +29,9 @@ export class MyProfileComponent implements OnInit {
     })
   }
 
-  editUser(){
+  showUser(){
     if(this.id !== null){
-      this._userService.editUser(this.id).subscribe(data => {
+      this._userService.showUser(this.id).subscribe(data => {
         this.userForm.setValue({
             username: data.username,
             password: data.password,
@@ -38,6 +39,23 @@ export class MyProfileComponent implements OnInit {
             avatar: data.avatar,
         })
       })
+    }
+  }
+
+  editUser(){
+    const user: User = {
+      username: this.userForm.get('username')?.value,
+      password: this.userForm.get('password')?.value,
+      email: this.userForm.get('email')?.value,
+      avatar: this.userForm.get('avatar')?.value,
+    }
+    
+    if(this.id !== null){
+      this._userService.editUser(this.id, user).subscribe(data => {
+        console.log("Edited");
+      }, error => {
+      console.log(error);
+    })
     }
   }
 }
