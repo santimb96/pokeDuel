@@ -22,6 +22,7 @@ const routes: Routes = [
   { path: 'how-to-play', component: HowToPlayComponent }, //gameMenu component
   { path: 'all-users', component: ShowUsersComponent }, //gameMenu component
   { path: 'pokedex', component: PokemonsComponent }, //pokemons component
+  { path: '**', redirectTo: '', pathMatch: 'full' }, //pokemons component
 
 ];
 
