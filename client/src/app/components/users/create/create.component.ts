@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import { User } from 'src/app/models/user';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-create',
@@ -10,7 +11,7 @@ import { User } from 'src/app/models/user';
 })
 export class CreateComponent implements OnInit {
   userForm: FormGroup
-  constructor(private fb: FormBuilder, public router: Router) {
+  constructor(private fb: FormBuilder, public router: Router, private _userService: UserService) {
     this.userForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
@@ -33,7 +34,15 @@ export class CreateComponent implements OnInit {
     }
 
     console.log(user)
-    this.router.navigate(['/log-in']);
+    this._userService.createUser(user).subscribe{
+      data => {
+        this.router.navigate(['/log-in']);
+      }, 
+      error => {
+        console.log(error);
+        this.userForm.reset();
+      }
+    }
   }
 
 }
