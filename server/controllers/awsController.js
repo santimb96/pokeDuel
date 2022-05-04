@@ -9,9 +9,6 @@ const Jimp = require('jimp');
 dotenv.config();
 
 const getDataFromAws = (req) => new Promise((resolve, reject) => {
-
-
-  
   aws.config.setPromisesDependency();
   aws.config.update({
     accessKeyId: process.env.ACCESS_KEY,
@@ -33,8 +30,6 @@ const getDataFromAws = (req) => new Promise((resolve, reject) => {
     if (err) {
       reject(err);
     }
-    // fs.unlinkSync(req.file);
-
     resolve(data);
   });
 });
