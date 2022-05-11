@@ -10,6 +10,7 @@ A continuación se listarán los puntos del proyecto:
 3. [Despliegue](#despliegue)
 4. [Conclusiones del proyecto](#conclusiones)
 5. [Bibliografía y webgrafía](#bibliografia)
+6. [Licencia](#licencia)
 
 ## 1. Introducción<a name="introducción"></a>
 
@@ -166,7 +167,7 @@ La parte de los buckets de Amazon Web Services se ha creado recae en la document
 
 
 
-## License
+### 6. Licencia<a name="licencia"></a>
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><br />Este obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">licencia de Creative Commons Reconocimiento-SinObraDerivada 4.0 Internacional</a>. por Kim Asiao y Santiago Martínez
 
