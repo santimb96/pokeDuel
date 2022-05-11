@@ -5,13 +5,13 @@
 
 A continuación se listarán los puntos del proyecto:
 
-- 1- Introducción
-- 2- Desarrollo de la aplicación
-- 3- Despliegue
-- 4- Conclusiones del proyecto
-- 5- Bibliografía y webgrafía
+1. [Introducción](#introduccion)
+2. [Desarrollo de la aplicación](#desarrollo)
+3. [Despliegue](#despliegue)
+4. [Conclusiones del proyecto](#conclusiones)
+5. [Bibliografía y webgrafía](#bibliografia)
 
-## 1. Introducción
+## 1. Introducción<a name="introducción"></a>
 
 #### Datos del proyecto:
 
@@ -58,7 +58,7 @@ Usamos Bootstrap como framework de estilos debido a la fluidez que tenemos con �
 
 Por otra parte, el scrapping de datos era necesario para automatizar la creación de los _pokémon_ y no tener que hacerlos a mano o con datos falsos. 
 
-## 2. Desarrollo de la Aplicación
+## 2. Desarrollo de la Aplicación<a name="desarrollo"></a>
 
 ### ANÁLISIS PREVIO
 
@@ -114,7 +114,7 @@ Los mayores problemas que nos hemos encontrado recaen en el despliegue. No hemos
 ### PRODUCCIÓN
 INSERTAR CAPTURAS DEL FRONT Y EXPLICAR BREVE AQUÍ!!
 
-## 3. DESPLIEGUE
+## 3. DESPLIEGUE<a name="despliegue"></a>
 
 ```sh
 Backend: https://pokeduel-dev-multer.up.railway.app/ (API REST)
@@ -138,7 +138,7 @@ En el lado cliente hemos usado _Vercel_ debido a la fácil integración con Angu
 
 Ambos despliegues necesitan las variables de entorno declaradas en local para poder funcionar, y más cuando tenemos que consumir una API REST.
 
-### 4. RESULTADOS Y CONCLUSIONES
+### 4. RESULTADOS Y CONCLUSIONES<a name="conclusiones"></a>
 
 Los objetivos marcados inicialmente no se han consolidado debido a que tuvimos problemas con una persona del grupo que no hizo absolutamente nada. 
 
@@ -150,7 +150,7 @@ La esencia de la idea inicial se manetiene, pero con muchos cambios no deseados 
 
 Para finalizar, si nos viéramos con ganas de seguir con este proyecto, implementaríamos nuevos pokémon, tipos, ránkings, más opciones de batalla y una interfaz algo más trabajada. Y quizás, y solo quizás, nos pensaríamos en sacar una versión de escritorio usando _Electron.js_.
 
-### 5. Bibliografía y Webgrafía
+### 5. Bibliografía y Webgrafía<a name="bibliografia"></a>
 
 Gran parte de la bibliografía y webgrafía se encuentra en el siguiente enlace. Además, esta documentación ha sido creada por Santiago en relación al backend de la aplicación.
 
