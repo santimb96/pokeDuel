@@ -6,7 +6,17 @@
 A continuación se listarán los puntos del proyecto:
 
 1. [Introducción](#introduccion)
+  - [Datos del proyecto](#datos)
+  - [Descripción](#descripcion)
+  - [Objetivos](#objetivos)
+  - [Tecnologías](#tecnologias)
 2. [Desarrollo de la aplicación](#desarrollo)
+  - [Análisis Previo](#analisisPrevio)
+    * [Modelo de datos](#modeloDatos)
+    * [Wireframe](#wireframe)
+    * [Paleta de colores](#paletaDeColores)
+  - [Diseño e implementación](#diseñoImplementacion)
+  - [Producción](#produccion)
 3. [Despliegue](#despliegue)
 4. [Conclusiones del proyecto](#conclusiones)
 5. [Bibliografía y webgrafía](#bibliografia)
@@ -14,7 +24,7 @@ A continuación se listarán los puntos del proyecto:
 
 ## 1. Introducción<a name="introducción"></a>
 
-#### Datos del proyecto:
+#### Datos del proyecto<a name="datos"></a>
 
 - Título del proyecto: PokeDuel
 - Tutor: Antoni Amengual
@@ -24,19 +34,19 @@ A continuación se listarán los puntos del proyecto:
 - [Despliegue en Vercel](https://breakdance.github.io/breakdance/)
 - [Link del proyecto](https://github.com/onikakimasiaod/pokeDuel)
 
-#### Descripción:
+#### Descripción<a name="descripcion"></a>
 
 Esta aplicación web consiste en la creación de un juego web básico, el cual tendremos que gestionar una serie de _pokémon_ durante las batallas para conseguir pasar rondas y así obtener una determinada puntuación. 
 
 EL usuario deberá estar registrado para poder jugar (esencial para guardar estadísticas), y requerirá, obviamente, de conexión a internet.
 
-#### Objetivos
+#### Objetivos<a name="objetivos"></a>
 
 Las necesidades que ha de satisfacer cara al usuario recaen en que este pueda jugar sin problemas y obtener estadísticas mediante su progreso.
 
 Por otra parte, nosotros como programadores queremos salirnos un poco de las apps típicas basadas en CRUDS simples y hacer algo más dinámico y atípico que nos suponga un, al menos, mini reto a la hora de programar.
 
-#### Metodologías y lenguajes
+#### Metodologías y lenguajes (teconologías)<a name="teconologias"></a>
 
 Se han usado los siguientes lenguajes/frameworks para trabajar en este proyecto:
 
@@ -61,9 +71,9 @@ Por otra parte, el scrapping de datos era necesario para automatizar la creació
 
 ## 2. Desarrollo de la Aplicación<a name="desarrollo"></a>
 
-### ANÁLISIS PREVIO
+### ANÁLISIS PREVIO<a name="analisisPrevio"></a>
 
-##### MODELO DE DATOS: 
+##### MODELO DE DATOS<a name="modeloDatos"></a>
 
 Hemos optado por un modelo de datos simple, basado en colecciones, el cual almacenará los _pokémon_, _usuarios_ y las _estadísticas_ de estos.
 
@@ -71,7 +81,7 @@ Los _pokémon_ solo serán para consumir los datos de la API propia levantada en
 
 ![Diseño de la base de datos](docs/images/pokeduel-dbmodel.png)
 
-##### WIREFRAME: 
+##### WIREFRAME<a name="wireframe"></a>
 _PANTALLA DE JUEGO_:
 ![Wireframe](docs/wireframe/WF1.jpg)
 
@@ -99,10 +109,10 @@ _PANTALLA DE ESTADÍSTICAS_:
 
 ![Wireframe](docs/wireframe/WF8.jpg)
 
-##### PALETA DE COLORES: 
+##### PALETA DE COLORES<a name="paletaDeColores"></a>
 INSERTAR PALETA DE COLORES AQUÍ!!!!
 
-### DISEÑO E IMPLEMENTACIÓN
+### DISEÑO E IMPLEMENTACIÓN<a name="diseñoImplementacion"></a>
 
 Hemos trabajado por ramas, las cuales se han ido creando por cada uno para desarrollar diferentes aspectos de la aplicación Por ejemplo si el backend está acabado, se crea una nueva rama en el caso de que se quiera añadir nuevas funcionalidades para evitar perjudicar a toda la aplicación que está en _develop o master_.
 
@@ -112,7 +122,7 @@ Es muy importante comenzar por el backend para que así luego solo se necesite c
 
 Los mayores problemas que nos hemos encontrado recaen en el despliegue. No hemos podido usar Apache con Node debido a numerosos problemas con las peticiones en el lado del servidor; con Nginx no hemos podido hacer funcionar del todo la aplicación. Por lo tanto, hemos decidido desplegar el backend en _railway.app_(basado en _Heroku_), y en _Vercel_ en el lado cliente.
 
-### PRODUCCIÓN
+### PRODUCCIÓN<a name="produccion"></a>
 INSERTAR CAPTURAS DEL FRONT Y EXPLICAR BREVE AQUÍ!!
 
 ## 3. DESPLIEGUE<a name="despliegue"></a>
