@@ -165,7 +165,7 @@ Para finalizar, si nos viéramos con ganas de seguir con este proyecto, implemen
 
 Gran parte de la bibliografía y webgrafía se encuentra en el siguiente enlace. Además, esta documentación ha sido creada por Santiago en relación al backend de la aplicación.
 
-[Backend con mongoose, Express y JWT (autor: Santiago Martínez)](https://docs.google.com/document/d/12O9TEtMsQjA9WDDlTKtHU0nl27Jt9BUjFu3dCzjWbwk/edit)
+[Backend con mongoose, Express y JWT (autor: Santiago Martínez)](https://docs.google.com/document/d/12O9TEtMsQjA9WDDlTKtHU0nl27Jt9BUjFu3dCzjWbwk/edit?usp=sharing)
 
 La parte del frontend se ha creado por Kim y se ha desarrollado en Angular con el framework de desarrollo _Angular CLI_.
 
