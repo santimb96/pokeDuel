@@ -87,7 +87,7 @@ const create = async (req, res) => {
       });
     });
   })
-  
+  .catch(err => handleError(400, 'Error al subir la imagen '+ err, res));
 };
 
 const deleteById = async (req, res) => {
