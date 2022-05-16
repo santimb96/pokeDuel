@@ -106,7 +106,6 @@ const login = (req, res) => {
   } else {
     User.findOne({ username: req.body.username })
       .then((user) => {
-        if (user) {
           bcrypt
             .compare(req.body.password, user.password)
             .then((pass) => {
@@ -127,7 +126,6 @@ const login = (req, res) => {
               }
             })
             .catch(() => handleError(404, 'Usuario no encontrado', res));
-        }
       })
       .catch(() => {
         handleError(404, 'Usuario no encontrado', res);
@@ -136,6 +134,7 @@ const login = (req, res) => {
 };
 
 const autoLogin = (req, res) => {
+  // {id: id, token: token}
   User.findOne({ _id: req.body.id })
     .then((user) => {
       if (user) {
@@ -144,7 +143,8 @@ const autoLogin = (req, res) => {
       } else {
         handleError(404, 'Usuario no encontrado', res);
       }
-    });
+    })
+    .catch(() => handleError(404, 'Usuario no encontrado', res));
 };
 
 
