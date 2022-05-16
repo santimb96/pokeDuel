@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(verifyToken);
 
-app.listen(4000, (err) => {
+app.listen(config.PORT, (err) => {
   if (err) return console.log(err);
   console.log(`Servidor corriendo en el puerto: ${config.PORT}`);
 });
