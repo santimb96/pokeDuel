@@ -66,8 +66,8 @@ const updateById = async (req, res) => {
   } else {
     if (req.body.password) {
       bcrypt.genSalt(10).then((salt) => {
-        bcrypt.hash(newUserToUpdate.password, salt).then((hashedPaswd) => {
-          newUserToUpdate.password = hashedPaswd;
+        bcrypt.hash(userToUpdate.password, salt).then((hashedPaswd) => {
+          userToUpdate.password = hashedPaswd;
           User.findOneAndUpdate({ _id: req.params.id }, userToUpdate)
             .then((user) =>
               res
