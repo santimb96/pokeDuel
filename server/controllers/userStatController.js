@@ -8,7 +8,7 @@ const getAll = async (req, res) => {
 };
 
 const findId = async (req, res) => {
-  UserStat.findOne({_id: req.params.id})
+  UserStat.findOne({user: req.params.id})
     .populate('user')
     .then(userStat => res.status(200).send({userStat}))
     .catch(() => handleError(404, 'No se han encontrado pokémons', res))
