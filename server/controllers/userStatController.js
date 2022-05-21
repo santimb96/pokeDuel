@@ -19,7 +19,8 @@ const create = async (req, res) => {
 
   const newUserStat = new UserStat({
     user: userStatToCreate.user,
-    timePlayed: new Date().setHours(0,0,0,0),
+    victories: 0,
+    score: 0,
     round: userStatToCreate.round,
     team: userStatToCreate.team,
     createdAt: new Date(),
@@ -35,7 +36,7 @@ const updateById = async (req, res) => {
   const userToUpdate = {...req.body, updatedAt: new Date()};
 
   UserStat.findOneAndUpdate({user: req.params.id}, userToUpdate)
-    .then((data) => res.status(201).send({data}))
+    .then(() => res.status(201).send({userToUpdate}))
     .catch(() => handleError(404, 'No se ha podido actualizar el usuario', res))
 }
 
