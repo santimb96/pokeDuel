@@ -41,7 +41,7 @@ const updateById = async (req, res) => {
 }
 
 const deleteById = async (req, res) => {
-  UserStat.findOneAndDelete({_id: req.params.id})
+  UserStat.findOneAndDelete({user: req.params.id})
     .then(userStat => res.status(201).send({userStat}))
     .catch(() => handleError(404, 'No se ha podido eliminar el usuario', res))
 }
