@@ -51,7 +51,8 @@ const updateById = async (req, res) => {
                   })
               )
               .catch(() => handleError(404, "Usuario no encontrado", res));
-          });
+          })
+          .catch(() => handleError(404, "No se ha podido actualizar la contraseña", res));
         });
       } else {
         User.findOneAndUpdate({ _id: req.params.id }, newUserToUpdate)
@@ -75,7 +76,8 @@ const updateById = async (req, res) => {
                 .send({ status: 201, message: `${user.username} actualizado` })
             )
             .catch(() => handleError(404, "Usuario no encontrado", res));
-        });
+        })
+        .catch(() => handleError(404, "No se ha podido actualizar la contraseña", res));
       });
     } else {
       User.findOneAndUpdate({ _id: req.params.id }, userToUpdate)
