@@ -110,7 +110,7 @@ _PANTALLA DE ESTADÍSTICAS_:
 ![Wireframe](docs/wireframe/WF8.jpg)
 
 ##### PALETA DE COLORES<a name="paletaDeColores"></a>
-INSERTAR PALETA DE COLORES AQUÍ!!!!
+<img src="![image](https://user-images.githubusercontent.com/74007996/170018069-b0b1f044-8753-4d96-be7b-5d9818f70f76.png)"/>
 
 ### DISEÑO E IMPLEMENTACIÓN<a name="diseñoImplementacion"></a>
 
