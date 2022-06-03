@@ -53,21 +53,21 @@ const updateById = async (req, res) => {
       };
 
       if (req.body.password) {
-        updateIfPassword(newUserToUpdate, res);
+        updateIfPassword(newUserToUpdate, res, req);
       } else {
-        updateWithoutPassword(newUserToUpdate, res);
+        updateWithoutPassword(newUserToUpdate, res, req);
       }
     });
   } else {
     if (req.body.password) {
-      updateIfPassword(userToUpdate, res);
+      updateIfPassword(userToUpdate, res, req);
     } else {
-      updateWithoutPassword(userToUpdate, res);
+      updateWithoutPassword(userToUpdate, res, req);
     }
   }
 };
 
-const updateIfPassword = (userToUpdate, res) => {
+const updateIfPassword = (userToUpdate, res, req) => {
   bcrypt.genSalt(10).then((salt) => {
     bcrypt.hash(userToUpdate.password, salt).then((hashedPaswd) => {
         userToUpdate.password = hashedPaswd;
@@ -88,7 +88,7 @@ const updateIfPassword = (userToUpdate, res) => {
   });
 }
 
-const updateWithoutPassword = (userToUpdate, res) => {
+const updateWithoutPassword = (userToUpdate, res, req) => {
   User.findOneAndUpdate({
       _id: req.params.id
     }, userToUpdate)
