@@ -89,6 +89,8 @@ const updateIfPassword = (userToUpdate, res, req) => {
 }
 
 const updateWithoutPassword = (userToUpdate, res, req) => {
+  
+  console.log(userToUpdate);
   User.findOneAndUpdate({
       _id: req.params.id
     }, userToUpdate)
