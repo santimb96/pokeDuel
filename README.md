@@ -52,20 +52,20 @@ Se han usado los siguientes lenguajes/frameworks para trabajar en este proyecto:
 
 | Lenguaje/framework | Librerías |
 | ------ | ------ |
-| Angular | funcionamiento por módulos (imports) |
+| Angular 11 | funcionamiento por módulos (imports): fs, angular material... |
 | Express | funcionamiento por módulos (require): multer, fs, aws, jwt, datefns, mongoose, dotenv... |
 | SCSS | 'custom' CSS |
 | Bootstrap 5 | 'custom' CSS |
 | TypeScript | funcionamiento por módulos(imports) |
 
-- Frontend: Angular, Bootstrap 5 y SCSS
+- Frontend: Angular 11, Bootstrap 5 y SCSS
 - Backend: Node.js con Express.js, Multer (librería de gestión de ficheros) para la gestión de estos, AWS (librería que permite conectar buckets de Amazon para almacenar información) y JWT para la autenticación de usuarios
 - Scrapping: se ha usado el sistema de módulos de JS (.mjs), para realizar un scrapping de datos sobre los _pokémon_ para su posterior almacenamiento en la base de datos. Para ello se ha usado la librería _fs_ para la escritura de estos sobre un .json y Node.js. 
 - Metodología: scrum (sprints de desarrollo en cada ámbito entre los dos), y el uso de Trello (kanban propietario).
 
 En el caso del frontend, hemos optado por _Ángular (JS)_ debido a que Kim se ocupa del Front y ella lo toca en la empresa, mientras que Santi está con el backend porque lo trabaja en la empresa. 
 
-Usamos Bootstrap como framework de estilos debido a la fluidez que tenemos con él por todo lo que hemos trabajado en el curso.
+Usamos Bootstrap como framework de estilos debido a la fluidez que tenemos con él por todo lo que hemos trabajado en el curso. Además, hacemos mixins para reutilizar código.
 
 Por otra parte, el scrapping de datos era necesario para automatizar la creación de los _pokémon_ y no tener que hacerlos a mano o con datos falsos. 
 
@@ -110,7 +110,7 @@ _PANTALLA DE ESTADÍSTICAS_:
 ![Wireframe](docs/wireframe/WF8.jpg)
 
 ##### PALETA DE COLORES<a name="paletaDeColores"></a>
-INSERTAR PALETA DE COLORES AQUÍ!!!!
+<img src="https://user-images.githubusercontent.com/74007996/170018069-b0b1f044-8753-4d96-be7b-5d9818f70f76.png" width="100%" />
 
 ### DISEÑO E IMPLEMENTACIÓN<a name="diseñoImplementacion"></a>
 
