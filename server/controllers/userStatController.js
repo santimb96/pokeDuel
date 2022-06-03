@@ -23,13 +23,14 @@ const create = async (req, res) => {
     score: 0,
     round: userStatToCreate.round,
     team: userStatToCreate.team,
+    aliveTeam: userStatToCreate.aliveTeam,
     createdAt: new Date(),
     updatedAt: new Date()
   });
 
   UserStat.create(newUserStat)
     .then(userStat => res.status(201).send({userStat}))
-    .catch(() => handleError(404, 'No se ha podido crear el usuario', res))
+    .catch(() => handleError(404, 'No se ha podido crear el userStat', res))
 }
 
 const updateById = async (req, res) => {
@@ -37,13 +38,13 @@ const updateById = async (req, res) => {
 
   UserStat.findOneAndUpdate({user: req.params.id}, userToUpdate)
     .then(() => res.status(201).send({userToUpdate}))
-    .catch(() => handleError(404, 'No se ha podido actualizar el usuario', res))
+    .catch(() => handleError(404, 'No se ha podido actualizar el userStat', res))
 }
 
 const deleteById = async (req, res) => {
   UserStat.findOneAndDelete({user: req.params.id})
     .then(userStat => res.status(201).send({userStat}))
-    .catch(() => handleError(404, 'No se ha podido eliminar el usuario', res))
+    .catch(() => handleError(404, 'No se ha podido eliminar el userStat', res))
 }
 
 module.exports = {

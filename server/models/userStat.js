@@ -22,6 +22,9 @@ const UserStatSchema = new mongoose.Schema({
     type: Array,
     required: true,
   },
+  aliveTeam: {
+    type: Array,
+  },
   createdAt: {
     type: Date,
     required: true,
