@@ -53,9 +53,9 @@ const updateById = async (req, res) => {
       };
 
       if (req.body.password) {
-        updateIfPassword(userToUpdate, res);
+        updateIfPassword(newUserToUpdate, res);
       } else {
-        updateWithoutPassword(userToUpdate, res);
+        updateWithoutPassword(newUserToUpdate, res);
       }
     });
   } else {
