@@ -1,4 +1,5 @@
 const User = require("../models/user.js");
+const UserStat = require("../models/userStat.js");
 const handleError = require("./errorController.js");
 const express = require("express");
 const jwt = require("jsonwebtoken");
@@ -89,7 +90,7 @@ const updateIfPassword = (userToUpdate, res, req) => {
 }
 
 const updateWithoutPassword = (userToUpdate, res, req) => {
-  
+
   console.log(userToUpdate);
   User.findOneAndUpdate({
       _id: req.params.id
@@ -145,12 +146,19 @@ const deleteById = async (req, res) => {
       _id: req.params.id
     })
     .then(() =>
-      res
-      .status(200)
-      .send({
-        status: 200,
-        message: "Registro borrado con éxito!"
+      UserStat.findOneAndDelete({
+        user: req.params.id
       })
+      .then(() => {
+        console.warn("Usuario y su estadística borrados");
+        res
+          .status(200)
+          .send({
+            status: 200,
+            message: "Registro borrado con éxito!"
+          })
+      })
+      .catch(() => handleError(404, "No se ha podido borrar el registro", res)) 
     )
     .catch(() => handleError(404, "Usuario no encontrado", res));
 };
