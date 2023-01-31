@@ -11,11 +11,7 @@ const app = express();
 const Database = require("./config/database");
 const config = require("./config/config");
 
-app.use(
-  cors({
-    origin: "*",
-  })
-);
+app.use(cors());
 //Nos permite manejar peticiones y enviar respuesta en formato json
 app.use(bodyParser.json());
 //De esta manera indicamos que no vamos a recibir peticiones enviadas directamente de un formulario, sino que sera todo enviado en json
