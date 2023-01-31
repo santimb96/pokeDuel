@@ -13,7 +13,7 @@ const config = require("./config/config");
 
 app.use(
   cors({
-    origin: "*",
+    origin: "https://pokeduel-mu.vercel.app",
   })
 );
 //Nos permite manejar peticiones y enviar respuesta en formato json
