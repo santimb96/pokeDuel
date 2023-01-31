@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "programming-languages-api",
+  "name": "pokeDuel",
   "builds": [
     {
       "src": "app.js",
