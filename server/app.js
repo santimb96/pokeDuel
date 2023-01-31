@@ -1,17 +1,17 @@
 const express = require("express");
+const cors = require("cors");
 const bodyParser = require("body-parser");
 
 const Pokemon = require("./routes/pokemon");
 const User = require("./routes/user");
 const UserStat = require("./routes/userStat");
 
-
 const app = express();
 
 const Database = require("./config/database");
 const config = require("./config/config");
 
-
+app.use(cors());
 //Nos permite manejar peticiones y enviar respuesta en formato json
 app.use(bodyParser.json());
 //De esta manera indicamos que no vamos a recibir peticiones enviadas directamente de un formulario, sino que sera todo enviado en json
@@ -24,10 +24,6 @@ app.listen(config.PORT, (err) => {
 
 Database.connect();
 
-app
-  .use("/pokemons", Pokemon)
-  .use("/users", User)
-  .use("/userStats", UserStat);
+app.use("/pokemons", Pokemon).use("/users", User).use("/userStats", UserStat);
 
-  
 module.exports = app;
