@@ -95,7 +95,7 @@ const login = (req, res) => {
     // comparar contraseñas con bcrypt
     // si es ok, firmar jwt
     // devolver user, userRole, jwt y expiryDate
-    User.findOne({ email: req.body.email })
+    User.findOne({ username: req.body.email })
       .then((user) => {
         if (user) {
           bcrypt

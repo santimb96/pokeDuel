@@ -8,7 +8,7 @@ router
   .get("/:id", userController.findId)
   .post("/", userController.create)
   .post("/login", userController.login)
-  .post("/:id", userController.autoLogin)
+  .post("/autologin", userController.autoLogin)
   .put("/:id", userController.updateById)
   .delete("/:id", userController.deleteById);
 

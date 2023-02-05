@@ -2,10 +2,10 @@
   "name": "pokeduel",
   "version": "1.0.0",
   "description": "Final project of DAW",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "author": "Santiago Martinez, Georgie Benevento and Kim Asiao",
   "license": "ISC",
