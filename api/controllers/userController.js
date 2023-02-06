@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const masterToken = require("../config/masterToken.js");
 const EXPIRE_DATE = require("../constants.js");
-const { getDataFromAws } = require("../utils/awsStorage.js");
+const getDataFromAws = require("../utils/awsStorage.js");
 const { format } = require("date-fns");
 
 const app = express();
