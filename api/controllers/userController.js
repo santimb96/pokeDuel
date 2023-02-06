@@ -3,8 +3,8 @@ const handleError = require("./errorController.js");
 const express = require("express");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const { masterToken } = require("../config/masterToken.js");
-const { EXPIRE_DATE } = require("../constants.js");
+const masterToken = require("../config/masterToken.js");
+const EXPIRE_DATE = require("../constants.js");
 const { format } = require("date-fns");
 
 const app = express();
@@ -88,14 +88,14 @@ const deleteById = async (req, res) => {
 };
 
 const login = (req, res) => {
-  if (!req.body.email || !req.body.password) {
+  if (!req.body.username || !req.body.password) {
     handleError(400.1, "Parámetros incorrectos", res);
   } else {
     // buscar el usuario
     // comparar contraseñas con bcrypt
     // si es ok, firmar jwt
     // devolver user, userRole, jwt y expiryDate
-    User.findOne({ username: req.body.email })
+    User.findOne({ username: req.body.username })
       .then((user) => {
         if (user) {
           bcrypt
@@ -110,7 +110,6 @@ const login = (req, res) => {
 
                 res.status(200).send({
                   user,
-                  role: user.userRoleId.name,
                   token: token,
                   expiryDate: format(expDate, "dd/MM/yyyy HH:mm"),
                 });
@@ -118,7 +117,7 @@ const login = (req, res) => {
                 handleError(401.1, "Contraseña incorrecta", res);
               }
             })
-            .catch(() => handleError(404, "Usuario no encontrado", res));
+            .catch((err) => console.log(err));
         }
       })
       .catch(() => {
