@@ -73,7 +73,7 @@ const create = (req, res) => {
         username: userToCreate.username,
         password: userToCreate.password,
         email: userToCreate.email,
-        avatar: userToCreate.url,
+        avatar: url,
         createdAt: new Date(),
       });
       User.create(newUser).then((userCreated) => {
