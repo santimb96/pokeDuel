@@ -128,16 +128,14 @@ const login = (req, res) => {
 
 const autoLogin = (req, res) => {
   // {id: id, token: token}
-  User.findOne({ _id: req.body.id })
-    .populate("userRoleId")
-    .then((user) => {
-      if (user) {
-        delete user._doc.password;
-        res.status(200).send({ user });
-      } else {
-        handleError(404, "Usuario no encontrado", res);
-      }
-    });
+  User.findOne({ _id: req.body.id }).then((user) => {
+    if (user) {
+      delete user._doc.password;
+      res.status(200).send({ user });
+    } else {
+      handleError(404, "Usuario no encontrado", res);
+    }
+  });
 };
 
 module.exports = {
