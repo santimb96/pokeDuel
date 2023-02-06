@@ -1,12 +1,16 @@
 const express = require("express");
+const multer = require("multer");
 const userController = require("../controllers/userController");
 
 const router = express.Router();
 
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
+
 router
   .get("/", userController.getAll)
   .get("/:id", userController.findId)
-  .post("/", userController.create)
+  .post("/", upload.single("avatar"), userController.create)
   .post("/login", userController.login)
   .post("/autologin", userController.autoLogin)
   .put("/:id", userController.updateById)

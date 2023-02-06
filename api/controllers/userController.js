@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const masterToken = require("../config/masterToken.js");
 const EXPIRE_DATE = require("../constants.js");
+const { getDataFromAws } = require("../utils/awsStorage.js");
 const { format } = require("date-fns");
 
 const app = express();
@@ -32,8 +33,8 @@ const updateById = async (req, res) => {
   const userToUpdate = req.body;
   if (req.body.password) {
     bcrypt.genSalt(10).then((salt) => {
-      bcrypt.hash(userToUpdate.password, salt).then((hashedPaswd) => {
-        userToUpdate.password = hashedPaswd;
+      bcrypt.hash(userToUpdate.password, salt).then((newPassword) => {
+        userToUpdate.password = newPassword;
         User.findOneAndUpdate({ _id: req.params.id }, userToUpdate)
           .then((user) =>
             res
@@ -54,17 +55,25 @@ const updateById = async (req, res) => {
   }
 };
 
-const create = async (req, res) => {
+const create = (req, res) => {
   const userToCreate = req.body;
 
   bcrypt.genSalt(10).then((salt) => {
-    bcrypt.hash(userToCreate.password, salt).then((hashedPaswd) => {
-      userToCreate.password = hashedPaswd;
+    bcrypt.hash(userToCreate.password, salt).then((newPassword) => {
+      userToCreate.password = newPassword;
+
+      const url = getDataFromAws(req, "avatar/")
+        .then((data) => data?.Location)
+        .catch((err) => new Error(err));
+
+      if (url instanceof Error) {
+        return handleError(500, "Error al subir la imagen", res);
+      }
       const newUser = new User({
         username: userToCreate.username,
         password: userToCreate.password,
         email: userToCreate.email,
-        avatar: userToCreate.avatar,
+        avatar: userToCreate.url,
         createdAt: new Date(),
       });
       User.create(newUser).then((userCreated) => {
