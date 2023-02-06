@@ -63,25 +63,30 @@ const create = (req, res) => {
       userToCreate.password = newPassword;
 
       const url = getDataFromAws(req, "avatar/")
-        .then((data) => data?.Location)
+        .then((data) => {
+          const url = data?.Location;
+
+          const newUser = new User({
+            username: userToCreate.username,
+            password: userToCreate.password,
+            email: userToCreate.email,
+            avatar: url,
+            createdAt: new Date(),
+          });
+          console.warn(newUser);
+
+          User.create(newUser).then((userCreated) => {
+            return res.status(201).send({
+              status: 201,
+              message: `${userCreated.username} ha sido cread@`,
+            });
+          });
+        })
         .catch((err) => new Error(err));
 
-      if (url instanceof Error) {
-        return handleError(500, "Error al subir la imagen", res);
-      }
-      const newUser = new User({
-        username: userToCreate.username,
-        password: userToCreate.password,
-        email: userToCreate.email,
-        avatar: url,
-        createdAt: new Date(),
-      });
-      User.create(newUser).then((userCreated) => {
-        return res.status(201).send({
-          status: 201,
-          message: `${userCreated.username} ha sido cread@`,
-        });
-      });
+      // if (url instanceof Error) {
+      //   return handleError(500, "Error al subir la imagen", res);
+      // }
     });
   });
 };
