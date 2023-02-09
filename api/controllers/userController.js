@@ -83,10 +83,6 @@ const create = (req, res) => {
           });
         })
         .catch((err) => new Error(err));
-
-      // if (url instanceof Error) {
-      //   return handleError(500, "Error al subir la imagen", res);
-      // }
     });
   });
 };
