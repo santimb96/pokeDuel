@@ -57,32 +57,52 @@ const updateById = async (req, res) => {
 
 const create = (req, res) => {
   const userToCreate = req.body;
+  console.log(req.body)
 
   bcrypt.genSalt(10).then((salt) => {
     bcrypt.hash(userToCreate.password, salt).then((newPassword) => {
       userToCreate.password = newPassword;
-
-      const url = getDataFromAws(req, "avatar/")
-        .then((data) => {
-          const url = data?.Location;
-
-          const newUser = new User({
-            username: userToCreate.username,
-            password: userToCreate.password,
-            email: userToCreate.email,
-            avatar: url,
-            createdAt: new Date(),
+      const URL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/54.svg";
+      const { username, password, email } = userToCreate;
+      const newUser = new User({
+        username,
+        password,
+        email,
+        avatar: URL,
+        createdAt: new Date()
+      });
+      try {
+        User.create(newUser).then((userCreated) => {
+          return res.status(201).send({
+            status: 201,
+            message: `${userCreated.username} ha sido cread@`,
           });
-          console.warn(newUser);
+        });
+      } catch (error) {
+        console.error(error)
+      }
+      // this approach will be available when the aws service will be payed
+      // getDataFromAws(req, "avatar/")
+      //   .then((data) => {
+      //     const url = data?.Location;
 
-          User.create(newUser).then((userCreated) => {
-            return res.status(201).send({
-              status: 201,
-              message: `${userCreated.username} ha sido cread@`,
-            });
-          });
-        })
-        .catch((err) => new Error(err));
+      //     const newUser = new User({
+      //       username: userToCreate.username,
+      //       password: userToCreate.password,
+      //       email: userToCreate.email,
+      //       avatar: url,
+      //       createdAt: new Date(),
+      //     });
+      //     console.warn(newUser);
+
+      //     User.create(newUser).then((userCreated) => {
+      //       return res.status(201).send({
+      //         status: 201,
+      //         message: `${userCreated.username} ha sido cread@`,
+      //       });
+      //     });
+      //   })
+      //   .catch((err) => new Error(err));
     });
   });
 };
