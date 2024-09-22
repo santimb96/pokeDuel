@@ -19,9 +19,12 @@ const create = async (req, res) => {
 
   const newUserStat = new UserStat({
     user: userStatToCreate.user,
+    victories: userStatToCreate.victories,
+    score: userStatToCreate.score,
     timePlayed: new Date().setHours(0, 0, 0, 0),
     round: userStatToCreate.round,
     team: userStatToCreate.team,
+    aliveTeam: userStatToCreate.aliveTeam,
     createdAt: new Date(),
     updatedAt: new Date(),
   });
